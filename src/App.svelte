@@ -1,3 +1,5 @@
+<!-- TESTING PURPOSES ONLY. NOT TO BE IMPORTED -->
+
 <script lang="ts">
   import { Map, Marker, controls } from "./";
   const { NavigationControl } = controls;
