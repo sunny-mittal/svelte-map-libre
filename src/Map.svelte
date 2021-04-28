@@ -68,7 +68,7 @@
     const optionsWithDefaults = Object.assign({
       container,
       style,
-      center,
+      center
     }, options) as MapboxOptions
 
     const el = new Map(optionsWithDefaults)
@@ -102,6 +102,8 @@
       map = el
       queue.start()
       dispatch('ready')
+      setZoom(zoom)
+      setCenter(center)
     })
 
     return () => {
@@ -113,7 +115,14 @@
   $: !animationInProgress && setZoom(zoom)
 </script>
 
-<div class="w-full h-full" bind:this={container}>
+<style>
+  .map {
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+<div class="map" bind:this={container}>
   {#if map}
     <slot />
   {/if}
