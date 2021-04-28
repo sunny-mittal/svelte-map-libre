@@ -2,8 +2,8 @@
   import { ScaleControl } from "maplibre-gl";
   import { getContext } from "svelte";
 
-  import type { ContextProps } from "../Map.svelte";
-  import { ID } from "../mapbox";
+  import type { ContextProps } from "./Map.svelte";
+  import { ID } from "./mapbox";
 
   const { getMap } = getContext<ContextProps>(ID);
   const map = getMap();

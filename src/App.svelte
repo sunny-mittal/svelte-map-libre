@@ -1,8 +1,7 @@
 <!-- TESTING PURPOSES ONLY. NOT TO BE IMPORTED -->
 
 <script lang="ts">
-  import { Map, Marker, controls } from "./";
-  const { NavigationControl } = controls;
+  import { Map, Marker, NavigationControl } from "./";
 
   let mapComponent: Map;
   const center = [-2.8572362, 53.3358627] as [lng: number, lat: number];

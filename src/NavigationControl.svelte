@@ -1,8 +1,8 @@
 <script lang="ts">
   import { getContext } from "svelte";
   import { NavigationControl } from "maplibre-gl";
-  import type { ContextProps } from "../Map.svelte";
-  import { ID } from "../mapbox";
+  import type { ContextProps } from "./Map.svelte";
+  import { ID } from "./mapbox";
 
   const { getMap } = getContext<ContextProps>(ID);
   const map = getMap();
