@@ -8,7 +8,7 @@
 <script lang="ts">
   import 'maplibre-gl/dist/maplibre-gl.css'
   import { Map } from "maplibre-gl";
-  import type { MapboxOptions, Style } from "maplibre-gl";
+  import type { MapboxOptions, Style, LngLatBoundsLike, Control} from "maplibre-gl";
   import { onMount, createEventDispatcher, setContext } from "svelte";
   import { ID } from "./mapbox";
   import { normalizeStyle } from "./normalize-style";
@@ -23,7 +23,7 @@
   let container: HTMLDivElement;
   let animationInProgress = false;
 
-  const queue = new EventQueue((cmd: [string, any[]], cb) => {
+  const queue = new EventQueue((cmd: [string, any[]], cb: (_: null) => void) => {
     const [command, params] = cmd;
     map[command](...params);
     cb(null);
@@ -38,7 +38,7 @@
 
   const style = normalizeStyle(mapStyles);
 
-  export const fitBounds = (bbox, options = {}) => {
+  export const fitBounds = (bbox: LngLatBoundsLike, options = {}) => {
     queue.send("fitBounds", [bbox, options]);
   };
 
@@ -54,7 +54,7 @@
     queue.send("setCenter", [coords, eventData]);
   };
 
-  export const addControl = (control, position = "top-right") => {
+  export const addControl = (control: Control, position = "top-right") => {
     queue.send("addControl", [control, position]);
   };
 
